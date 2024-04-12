@@ -206,15 +206,37 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+
+.card-body{
+	padding: 18px;
+}
 .habilidades{
 	display: flex;
 	flex-direction: row;
+}
+.projet{
+	border: 3px solid purple;
+	border-radius: 7px;
+	margin-top: 20px;
+}
+.projet .links{
+	display: flex;
+	justify-content: end;
 	align-items: center;
 }
-.card-body{
-	padding: 30px;
+.pro-link{
+	padding: 10px;
+	color: white;
+	font-weight: 600;
 }
-
+.projet h4{
+	padding: 10px;
+	font-size: 26px;
+}
+.projet p{
+	margin-left: 10px;
+	font-size: 18px;
+}
 
 @keyframes gradient-animation {
 	0% {

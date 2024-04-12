@@ -1,3 +1,27 @@
+@media(max-width: 10000px) {
+    
+    .cabecalho {
+        padding: 30px;
+    }
+
+    .home {
+        flex-direction: column;
+        align-items: center;
+        margin: 50px 0;
+        gap: 30px;
+    }
+
+    .home .informacoes {
+        max-width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .projetos .container-projetos {
+        padding: 0 30px;
+    }
+}
+
 @media(max-width: 1280px) {
     
     .cabecalho {
@@ -37,5 +61,8 @@
 
     .projetos {
         padding: 30px;
+    }
+    .habilidades{
+        flex-direction: column;
     }
 }
