@@ -35,6 +35,17 @@ body {
 	border: 2px solid #9443d8;
 }
 
+.menu li{
+	display: inline;
+}
+
+
+.btnn{
+	padding: 20px;
+	background-color: purple;
+	border-radius: 20px;
+}
+
 .cabecalho .menu li a {
 	font-size: 20px;
 	text-transform: capitalize;
