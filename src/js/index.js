@@ -1,20 +1,3 @@
-/*
-    Objetivo 1 - quando o usuário clicar no botão de mostrar mais deve abrir os projetos que estão escondidos no html
-
-        Passo 1 - pegar o botão mostrar mais no JS pra poder verificar quando o usuário clicar em cima dele
-
-        Passo 2 - identificar o clique no botão
-        
-        Passo 3 - adicionar a classe "ativo" nos projetos escondidos
-
-    Objetivo 2 - esconder o botão de mostrar mais
-        Passo 1 - pegar o botão e esconder ele
-*/
-
-// Objetivo 1 - quando o usuário clicar no botão de mostrar mais deve abrir os projetos que estão escondidos no html
-
-// Passo 1 - pegar o botão mostrar mais no JS pra poder verificar quando o usuário clicar em cima dele
-
 const habilidades = {
   frontend: [
     "HTML",
@@ -58,7 +41,7 @@ function abrirModal(tipo) {
   if (tipo === "backend") titulo.textContent = "Habilidades Back-end";
   if (tipo === "analista") titulo.textContent = "Habilidades Analista / BI";
 
-  habilidades[tipo].forEach(skill => {
+  habilidades[tipo].forEach((skill) => {
     const item = document.createElement("span");
     item.textContent = skill;
     lista.appendChild(item);
@@ -90,42 +73,43 @@ const totalDots = 12;
 let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
 
-// cria os pontos
-for (let i = 0; i < totalDots; i++) {
-  const dot = document.createElement("div");
-  dot.classList.add("trail-dot");
-  trailContainer.appendChild(dot);
+if (trailContainer) {
+  for (let i = 0; i < totalDots; i++) {
+    const dot = document.createElement("div");
+    dot.classList.add("trail-dot");
+    trailContainer.appendChild(dot);
 
-  dots.push({
-    el: dot,
-    x: mouseX,
-    y: mouseY
-  });
-}
+    dots.push({
+      el: dot,
+      x: mouseX,
+      y: mouseY
+    });
+  }
 
-document.addEventListener("mousemove", (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
-
-function animateTrail() {
-  let x = mouseX;
-  let y = mouseY;
-
-  dots.forEach((dot, index) => {
-    dot.x += (x - dot.x) * 0.35;
-    dot.y += (y - dot.y) * 0.35;
-
-    const scale = 1 - index / totalDots * 0.75;
-    dot.el.style.left = dot.x + "px";
-    dot.el.style.top = dot.y + "px";
-    dot.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
-
-    x = dot.x;
-    y = dot.y;
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
   });
 
-  requestAnimationFrame(animateTrail);
-}
+  function animateTrail() {
+    let x = mouseX;
+    let y = mouseY;
 
-animateTrail();
+    dots.forEach((dot, index) => {
+      dot.x += (x - dot.x) * 0.35;
+      dot.y += (y - dot.y) * 0.35;
+
+      const scale = 1 - (index / totalDots) * 0.75;
+      dot.el.style.left = dot.x + "px";
+      dot.el.style.top = dot.y + "px";
+      dot.el.style.transform = `translate(-50%, -50%) scale(${scale})`;
+
+      x = dot.x;
+      y = dot.y;
+    });
+
+    requestAnimationFrame(animateTrail);
+  }
+
+  animateTrail();
+}

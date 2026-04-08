@@ -9,14 +9,10 @@ body {
 	max-width: 1120px;
 	background: linear-gradient(150deg, #000000, #9e00ff);
 	background-size: 120% 120%;
-}
-
-body {
 	position: relative;
 	overflow-x: hidden;
 }
 
-/* camada de brilho */
 .efeito-mouse {
 	position: fixed;
 	top: 0;
@@ -25,95 +21,39 @@ body {
 	height: 100%;
 	pointer-events: none;
 	z-index: 0;
-
 	background: radial-gradient(
 		300px circle at var(--x) var(--y),
-		rgba(255, 255, 255, 0.15),
+		rgba(255, 255, 255, 0.12),
 		transparent 40%
 	);
 }
 
-.container-cards {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 30px;
+.trail-container {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 9999;
 }
 
-.card-projeto {
-	width: 300px;
-	background: rgba(255, 255, 255, 0.05);
-	border-radius: 15px;
-	overflow: hidden;
-	border: 1px solid rgba(158, 0, 255, 0.4);
-	backdrop-filter: blur(10px);
-	transition: 0.3s;
+.trail-dot {
+	position: fixed;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	pointer-events: none;
+	transform: translate(-50%, -50%);
+	background: rgba(158, 0, 255, 0.12);
+	border: 1.5px solid rgba(158, 0, 255, 0.75);
+	box-shadow: 0 0 8px rgba(158, 0, 255, 0.3);
 }
-
-.card-projeto:hover {
-	transform: translateY(-10px);
-	border-color: #9e00ff;
-	box-shadow: 0 0 20px rgba(158, 0, 255, 0.5);
-}
-
-/* imagem */
-.card-projeto img {
-	width: 100%;
-	height: 180px;
-	object-fit: cover;
-}
-
-/* conteúdo */
-.card-projeto .conteudo {
-	padding: 20px;
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-}
-
-.card-projeto h3 {
-	font-size: 22px;
-}
-
-.card-projeto p {
-	font-size: 14px;
-	color: #ccc;
-}
-
-.tecnologias {
-	font-size: 12px;
-	color: #9e00ff;
-	font-weight: bold;
-}
-
-/* botões */
-.botoes {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 10px;
-}
-
-.botoes a {
-	text-decoration: none;
-	padding: 8px 12px;
-	border-radius: 8px;
-	background-color: #9e00ff;
-	color: #fff;
-	font-size: 14px;
-	transition: 0.3s;
-}
-
-.botoes a:hover {
-	background-color: #7a00cc;
-}
-
-
 
 .cabecalho {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 30px 15px;
+	position: relative;
+	z-index: 2;
 }
 
 .cabecalho .logo {
@@ -133,23 +73,14 @@ body {
 	border: 2px solid #9443d8;
 }
 
-.menu li{
+.menu li {
 	display: inline;
 }
 
-
-.btnn{
+.btnn {
 	padding: 20px;
 	background-color: purple;
 	border-radius: 20px;
-}
-
-.container-foto-habilidades{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 30px;
 }
 
 .cabecalho .menu li a {
@@ -171,6 +102,8 @@ body {
 	align-items: center;
 	gap: 50px;
 	justify-content: space-between;
+	position: relative;
+	z-index: 2;
 }
 
 .home .informacoes {
@@ -216,6 +149,14 @@ body {
 	transform: scale(1.1);
 }
 
+.container-foto-habilidades {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+}
+
 .home .container-foto {
 	display: flex;
 	justify-content: center;
@@ -246,100 +187,6 @@ body {
 	background: linear-gradient(to right, #8a35c8, #18c063, #00eea2);
 	background-size: 180% 180%;
 	animation: gradient-animation 5s ease infinite;
-}
-
-.projetos {
-	padding: 40px 0 70px;
-}
-
-.projetos .titulo {
-	text-align: center;
-	padding: 60px 0;
-	font-size: 45px;
-	font-weight: 500;
-	text-transform: uppercase;
-}
-
-.projetos .container-projetos {
-	display: flex;
-	gap: 20px;
-	flex-wrap: wrap;
-	margin-bottom: 20px;
-	justify-content: center;
-}
-
-.projetos .projeto {
-	max-width: 260px;
-	max-height: 500px;
-	position: relative;
-	display: none;
-}
-
-.projetos .projeto.ativo {
-	display: block;
-}
-
-.projetos .projeto img {
-	height: 100%;
-}
-
-.projetos .projeto h3 {
-	background-color: #040203;
-	width: 100%;
-	padding-left: 20px;
-	padding-bottom: 10px;
-	padding-top: 10px;
-	position: absolute;
-	bottom: 0;
-}
-
-.projetos .projeto .informacoes-projeto {
-	background-color: #040203;
-	position: absolute;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	font-weight: 600;
-	opacity: 0;
-	transition: 0.3s;
-	padding: 20px;
-}
-
-.projetos .container-projetos .projeto:hover .informacoes-projeto {
-	opacity: 0.7;
-	background-color: #000;
-}
-
-.projetos .btn-mostrar-projetos {
-	background: none;
-	border: 1px solid #fff;
-	border-radius: 15px;
-	color: #fff;
-	width: 180px;
-	padding: 20px;
-	font-size: 18px;
-	font-weight: 600;
-	margin: 0 auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	cursor: pointer;
-}
-
-.projetos .btn-mostrar-projetos:hover {
-	background-color: #9443d8;
-	transition: 0.3s;
-}
-
-.projetos .btn-mostrar-projetos.remover {
-	display: none;
-}
-
-.projetos h2 {
-	text-align: center;
-	font-size: 40px;
-	margin-bottom: 40px;
-	letter-spacing: 3px;
 }
 
 .categorias-habilidades {
@@ -374,19 +221,19 @@ body {
 .skill-card.front {
 	background:
 		linear-gradient(rgba(20, 0, 40, 0.65), rgba(20, 0, 40, 0.9)),
-		url('../imagens/skills/frontend.png') center/cover no-repeat;
+		url("../imagens/skills/frontend.png") center/cover no-repeat;
 }
 
 .skill-card.back {
 	background:
 		linear-gradient(rgba(20, 0, 40, 0.65), rgba(20, 0, 40, 0.9)),
-		url('../imagens/skills/backend.png') center/cover no-repeat;
+		url("../imagens/skills/backend.png") center/cover no-repeat;
 }
 
 .skill-card.analista {
 	background:
 		linear-gradient(rgba(20, 0, 40, 0.65), rgba(20, 0, 40, 0.9)),
-		url('../imagens/skills/analista.png') center/cover no-repeat;
+		url("../imagens/skills/analista.png") center/cover no-repeat;
 }
 
 .skill-conteudo h3 {
@@ -416,26 +263,92 @@ body {
 	transform: scale(1.05);
 }
 
-.trail-container {
-	position: fixed;
-	inset: 0;
-	pointer-events: none;
-	z-index: 9999;
+.projetos {
+	padding: 40px 0 70px;
+	position: relative;
+	z-index: 2;
 }
 
-.trail-dot {
-	position: fixed;
-	width: 12px;
-	height: 12px;
-	border-radius: 50%;
-	pointer-events: none;
-	transform: translate(-50%, -50%);
-	background: rgba(158, 0, 255, 0.12);
-	border: 1.5px solid rgba(158, 0, 255, 0.75);
-	box-shadow: 0 0 8px rgba(158, 0, 255, 0.3);
+.projetos h2 {
+	text-align: center;
+	font-size: 40px;
+	margin-bottom: 40px;
+	letter-spacing: 3px;
 }
 
-/* modal */
+.container-cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 30px;
+}
+
+.card-projeto {
+	width: 300px;
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 15px;
+	overflow: hidden;
+	border: 1px solid rgba(158, 0, 255, 0.4);
+	backdrop-filter: blur(10px);
+	transition: 0.3s;
+}
+
+.card-projeto:hover {
+	transform: translateY(-10px);
+	border-color: #9e00ff;
+	box-shadow: 0 0 20px rgba(158, 0, 255, 0.5);
+}
+
+.card-projeto img {
+	width: 100%;
+	height: 180px;
+	object-fit: cover;
+}
+
+.card-projeto .conteudo {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.card-projeto h3 {
+	font-size: 22px;
+}
+
+.card-projeto p {
+	font-size: 14px;
+	color: #ccc;
+}
+
+.tecnologias {
+	font-size: 12px;
+	color: #9e00ff;
+	font-weight: bold;
+}
+
+.botoes {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.botoes a {
+	text-decoration: none;
+	padding: 8px 12px;
+	border-radius: 8px;
+	background-color: #9e00ff;
+	color: #fff;
+	font-size: 14px;
+	transition: 0.3s;
+}
+
+.botoes a:hover {
+	background-color: #7a00cc;
+}
+
 .modal-skills {
 	display: none;
 	position: fixed;
@@ -491,57 +404,13 @@ body {
 	font-size: 14px;
 }
 
-.informacoes-projeto{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.card-body{
-	padding: 18px;
-}
-.habilidades{
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 20px;
-}
-.projet{
-	border: 3px solid purple;
-	border-radius: 7px;
-	margin-top: 20px;
-}
-.projet .links{
-	display: flex;
-	justify-content: end;
-	align-items: center;
-}
-.pro-link{
-	padding: 10px;
-	color: white;
-	font-weight: 600;
-}
-.projet h4{
-	padding: 10px;
-	font-size: 26px;
-}
-.projet p{
-	margin-left: 10px;
-	font-size: 18px;
-}
-
-
-
 @keyframes gradient-animation {
 	0% {
 		background-position: 0% 50%;
 	}
-
 	50% {
 		background-position: 100% 50%;
 	}
-
 	100% {
 		background-position: 0% 50%;
 	}
